@@ -1,0 +1,156 @@
+@use 'variables' as var;
+
+body{
+    background-color: var.$light-grayish-cyan;
+    font-family: var.$font;
+}
+
+.splitter__title{
+    color: var.$dark-grayish-cyan;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 4.5rem;
+    letter-spacing: .5rem;
+    
+    &--block{
+        display: block;
+        margin-top: .6rem;
+    }
+}
+
+/* ------- section one ------- */
+
+.splitter__content{
+    background-color: var.$white;
+    padding: 3.5rem 3rem;
+    margin-top: 3.5rem;
+    border-radius: 2rem 2rem 0 0;
+}
+
+.share{
+
+    border: none;
+    padding: 0;
+    
+    &__legend{
+        font-size: 1.6rem;
+        color: var.$grayish-cyan;
+    }
+    
+    &__label{
+        margin-top: .3rem;
+    }
+    
+    &__input{
+        border: none;
+        text-align: end;
+        background-color: transparent;
+        font-size: 2.5rem;
+        width: 100%;
+        outline: none;
+        color: var.$very-dark-cyan;
+        
+        &::placeholder{
+            color: var.$very-dark-cyan;
+        }
+    }
+}
+
+.share__input-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    border-radius: .5rem;
+    width: 100%;
+    height: 5rem;
+    background-color: var.$light-grayish-cyan;
+    margin-top: .6rem;
+}
+
+.tip-selector{
+    
+    border: none;
+    padding: 0;
+    margin: 3.5rem 0;
+    
+    &__legend{
+        font-size: 1.6rem;
+        color: var.$grayish-cyan;
+        margin-bottom: 1.9rem;
+    }
+    &__button-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 5rem);
+        gap: 1.5rem;
+    }
+    &__button{
+        border: none;
+        background-color: var.$very-dark-cyan;
+        border-radius: .5rem;
+        font-size: 2.5rem;
+        color: var.$white;
+    }
+    &__input{
+        font-size: 2.5rem;
+        border: none;
+        width: 100%;
+        text-align: center;
+        border-radius: .5rem;
+        background-color: var.$light-grayish-cyan;
+        color: var.$very-dark-cyan;
+        outline: none;
+        
+        &::placeholder{
+            color: var.$very-dark-cyan;
+        }
+    }
+}
+
+/* ------- section two ------- */
+
+.splitter__result{
+    background-color: var.$very-dark-cyan;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 3rem;
+    height: 26rem;
+    border-radius: 1.3rem;
+    padding: 4.5rem 2rem 2rem;
+}
+
+.container-result{
+    display: flex;
+    justify-content: space-between;
+}
+
+.result{
+    &__title{
+        color: var.$white;
+        font-size: 1.5rem;
+    }
+    &__sub-title{
+        color: var.$grayish-cyan;
+        font-size: 1.4rem;
+        margin-top: .5rem;
+    }
+}
+
+.result-value{
+    color: var.$strong-cyan;
+    font-size: 3rem;
+}
+
+.reset{
+    background-color: var.$strong-cyan;
+    border: none;
+    border-radius: .5rem;
+    color: var.$very-dark-cyan;
+    height: 5rem;
+    font-size: 2rem;
+}
+
+
+

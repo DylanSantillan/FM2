@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Tip calculator app</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <main class="splitter">
+    <h1 class="splitter__title">SPLI<span class="splitter__title--block">TTER</span></h1>
+  
+    <div class="splitter__content">
+      <!-- ------- section one ------- -->
+      <section class="splitter__input">
+        <fieldset class="share">
+          <legend class="share__legend">Bill</legend>
+          <div class="share__input-wrapper">
+            <label for="bill-amount" class="share__label"><img src="images/icon-dollar.svg" alt="Icon dollar" class="share__icon"></label>
+            <input type="text" id="bill-amount" class="share__input" placeholder="00.0">
+          </div>
+        </fieldset>
+  
+        <fieldset class="tip-selector">
+          <legend class="tip-selector__legend">Select Tip %</legend>
+          <div class="tip-selector__button-wrapper">
+            <input type="button" value="5%" class="tip-selector__button">
+            <input type="button" value="10%" class="tip-selector__button">
+            <input type="button" value="15%" class="tip-selector__button">
+            <input type="button" value="25%" class="tip-selector__button">
+            <input type="button" value="50%" class="tip-selector__button">
+            <input type="text" id="custom-tip" class="tip-selector__input" placeholder="Custom">
+          </div>
+        </fieldset>
+  
+        <fieldset class="share">
+          <legend class="share__legend">Number of People</legend>
+          <div class="share__input-wrapper">
+            <label for="num-people" class="share__label"><img src="images/icon-person.svg" alt="Icon person" class="share__icon"></label>
+            <input type="text" id="num-people" class="share__input" placeholder="0">
+          </div>
+        </fieldset>
+      </section>
+  
+      <!-- ------- section two ------- -->
+      <section class="splitter__result">
+        <div class="container-result">
+          <div class="result">
+            <h3 class="result__title">Tip Amount</h3>
+            <p class="result__sub-title">/ person</p>
+          </div>
+          <p class="result-value">$0.00</p>
+        </div>
+        
+        <div class="container-result">
+          <div class="result">
+            <h3 class="result__title">Total</h3>
+            <p class="result__sub-title">/ person</p>
+          </div>
+          <p class="result-value">$0.00</p>
+        </div>
+  
+        <input type="button" value="RESET" class="reset">
+      </section>
+  
+    </div>
+  </main>
+
+</body>
+</html>
