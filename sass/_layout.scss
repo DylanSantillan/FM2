@@ -1,16 +1,39 @@
 @use 'variables' as var;
+@use 'mixins' as mix;
+
+/* ------- GENERAL ------- */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
 
 body{
     background-color: var.$light-grayish-cyan;
     font-family: var.$font;
+    overflow-x: hidden;
+}
+
+.splitter{
+    max-width: 71rem;
+    margin: 0 auto;
+    
+    @include mix.responsive(lg){
+        max-width: 100rem;
+    }
 }
 
 .splitter__title{
     color: var.$dark-grayish-cyan;
     font-size: 2.5rem;
     text-align: center;
-    margin-top: 4.5rem;
     letter-spacing: .5rem;
+    margin-top: 4.5rem;
     
     &--block{
         display: block;
@@ -18,23 +41,36 @@ body{
     }
 }
 
-/* ------- section one ------- */
-
 .splitter__content{
     background-color: var.$white;
+    border-radius: 2rem 2rem 0 0;
     padding: 3.5rem 3rem;
     margin-top: 3.5rem;
-    border-radius: 2rem 2rem 0 0;
+    
+    @include mix.responsive(sm){
+        border-radius: 2rem;
+        margin-bottom: 5rem;
+    }
+    
+    @include mix.responsive(lg){
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
 }
 
-.share{
 
+
+/* ------- SECTION ONE ------- */
+
+.share{
+    
     border: none;
     padding: 0;
     
     &__legend{
-        font-size: 1.6rem;
         color: var.$grayish-cyan;
+        font-size: 1.6rem;
     }
     
     &__label{
@@ -42,13 +78,13 @@ body{
     }
     
     &__input{
-        border: none;
-        text-align: end;
         background-color: transparent;
-        font-size: 2.5rem;
-        width: 100%;
-        outline: none;
         color: var.$very-dark-cyan;
+        font-size: 2.5rem;
+        text-align: end;
+        border: none;
+        outline: none;
+        width: 100%;
         
         &::placeholder{
             color: var.$very-dark-cyan;
@@ -57,15 +93,19 @@ body{
 }
 
 .share__input-wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
+    background-color: var.$light-grayish-cyan;
     border-radius: .5rem;
+    padding: 0 2rem;
+    margin-top: .6rem;
+    @include mix.flex(row, space-between, center);
     width: 100%;
     height: 5rem;
-    background-color: var.$light-grayish-cyan;
-    margin-top: .6rem;
+    border: 3px solid transparent;
+    transition: border .3s ease-in-out;
+
+    &:hover{
+        border: 3px solid var.$dark-grayish-cyan;
+    }
 }
 
 .tip-selector{
@@ -75,8 +115,8 @@ body{
     margin: 3.5rem 0;
     
     &__legend{
-        font-size: 1.6rem;
         color: var.$grayish-cyan;
+        font-size: 1.6rem;
         margin-bottom: 1.9rem;
     }
     &__button-wrapper{
@@ -86,21 +126,33 @@ body{
         gap: 1.5rem;
     }
     &__button{
-        border: none;
         background-color: var.$very-dark-cyan;
-        border-radius: .5rem;
-        font-size: 2.5rem;
         color: var.$white;
+        font-size: 2.5rem;
+        border: none;
+        border-radius: .5rem;
+        transition: background-color .3s ease-in-out, color .3s ease-in-out;
+    
+        &:hover{
+            background-color: var.$strong-cyan;
+            color: var.$very-dark-cyan;
+        }
     }
     &__input{
-        font-size: 2.5rem;
-        border: none;
-        width: 100%;
-        text-align: center;
-        border-radius: .5rem;
         background-color: var.$light-grayish-cyan;
         color: var.$very-dark-cyan;
+        font-size: 2.5rem;
+        text-align: center;
+        border: none;
+        border-radius: .5rem;
         outline: none;
+        width: 100%;
+        border: 3px solid transparent;
+        transition: border .3s ease-in-out;
+    
+        &:hover{
+            border: 3px solid var.$dark-grayish-cyan;
+        }
         
         &::placeholder{
             color: var.$very-dark-cyan;
@@ -108,25 +160,32 @@ body{
     }
 }
 
-/* ------- section two ------- */
+/* ------- SECTION TWO ------- */
 
 .splitter__result{
     background-color: var.$very-dark-cyan;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    @include mix.flex(column, space-between, strech);
     margin-top: 3rem;
     height: 26rem;
     border-radius: 1.3rem;
     padding: 4.5rem 2rem 2rem;
+
+    @include mix.responsive(lg){
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
 }
 
 .container-result{
-    display: flex;
-    justify-content: space-between;
+    @include mix.flex(row, space-between, center);
 }
 
 .result{
+
     &__title{
         color: var.$white;
         font-size: 1.5rem;
@@ -141,16 +200,22 @@ body{
 .result-value{
     color: var.$strong-cyan;
     font-size: 3rem;
+
+    @include mix.responsive(lg){
+        font-size: 4rem;
+    }
 }
 
 .reset{
     background-color: var.$strong-cyan;
+    color: var.$very-dark-cyan;
+    font-size: 2rem;
     border: none;
     border-radius: .5rem;
-    color: var.$very-dark-cyan;
     height: 5rem;
-    font-size: 2rem;
+    transition: font-size .3s ease-in-out;
+
+    @include mix.responsive(lg){
+        grid-row: 6;
+    }
 }
-
-
-
