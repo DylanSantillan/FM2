@@ -1,5 +1,5 @@
 # Frontend Mentor 1 :nerd_face:
-## Interactive rating component
+## Tip calculator app
 
 This small app is perfect for anyone starting to get to grips with JavaScript. The calculator functionality will be a nice test!
 
