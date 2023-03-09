@@ -4,8 +4,10 @@ let bill = document.getElementById('bill-amount'),
     people = document.getElementById('num-people'),
     amount = document.getElementById('amount'),
     total = document.getElementById('total'),
-    errorText = document.getElementById('error-text'),
-    peopleWrapper = document.getElementById('people-wrapper')
+    reset = document.getElementById('reset');
+    // validation
+let errorText = document.getElementById('error-text'),
+    peopleWrapper = document.getElementById('people-wrapper');
 
 
 /* ------- BILL ------- */
@@ -13,7 +15,6 @@ let billUpdate = 0;
 
 bill.addEventListener('input', () => {
     billUpdate = Number(bill.value)
-    console.log(billUpdate + ' ' + 'bill')
     calculateValues();
 })
 
@@ -31,7 +32,6 @@ tipButton.forEach(select => {
             selectedTipButton = select;
             selectedTipButton.classList.add('select');
             tipUpdate = parseFloat(selectedTipButton.value);
-            console.log(tipUpdate + ' ' + 'tip');
             calculateValues();
         }
     });
@@ -44,7 +44,6 @@ tipCustom.addEventListener('input', () => {
     }
     tipUpdate = parseFloat(tipCustom.value);
     if (isNaN(tipUpdate)) {tipUpdate = 0;}
-    console.log(tipUpdate + ' ' + 'tip');
     calculateValues();
 });
 
@@ -54,7 +53,6 @@ let peopleUpdate = 0;
 
 people.addEventListener('input', () => {
     peopleUpdate = Number(people.value)
-    console.log(peopleUpdate + ' ' + 'people')
     if(peopleUpdate === 0){
         errorText.classList.remove('error-disable');
         errorText.classList.add('error-active');
@@ -77,14 +75,39 @@ function calculateValues() {
         total.innerText = '0.00';
         return;
     }
-
+    
     if (peopleUpdate === 0) {
         peopleUpdate = 1;
     }
-
+    
     amountUpdate = (billUpdate * (tipUpdate / 100)) / peopleUpdate;
     totalUpdate = (billUpdate + (billUpdate * (tipUpdate / 100))) / peopleUpdate;
     amount.innerText = amountUpdate.toFixed(2);
     total.innerText = totalUpdate.toFixed(2);
 }
 calculateValues();
+
+/* ------- RESET ------- */
+reset.addEventListener('click', () => {
+    billUpdate = 0;
+    bill.value = '';
+    
+    tipUpdate = 0;
+    tipCustom.value = '';
+    
+    peopleUpdate = 1;
+    people.value = '1';
+    
+    amountUpdate = 0;
+    totalUpdate = 0;
+    amount.innerText = '0.00';
+    total.innerText = '0.00';
+    
+    if (selectedTipButton) {
+        selectedTipButton.classList.remove('select');
+        selectedTipButton = null;
+    }
+    errorText.classList.remove('error-active');
+    errorText.classList.add('error-disable');
+    peopleWrapper.classList.remove('error-input');
+})
