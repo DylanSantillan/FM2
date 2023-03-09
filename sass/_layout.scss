@@ -101,11 +101,28 @@ body{
     width: 100%;
     height: 5rem;
     border: 3px solid transparent;
-    transition: border .3s ease-in-out;
-
+    transition: border .3s ease-in-out, background-color .3s ease-in-out;
+    
     &:hover{
-        border: 3px solid var.$dark-grayish-cyan;
+        background-color: var.$very-light-grayish-cyan
     }
+}
+
+.container-error{
+    @include mix.flex(row, space-between, center);
+}
+
+.error-disable{
+    display: none;
+}
+
+.error-active{
+    color: var.$red;
+    font-size: 1.6rem;
+}
+
+.error-input{
+    border: 3px solid var.$red;
 }
 
 .tip-selector{
@@ -148,16 +165,21 @@ body{
         outline: none;
         width: 100%;
         border: 3px solid transparent;
-        transition: border .3s ease-in-out;
+        transition: background-color .3s ease-in-out;
     
         &:hover{
-            border: 3px solid var.$dark-grayish-cyan;
+            background-color: var.$very-light-grayish-cyan
         }
         
         &::placeholder{
             color: var.$very-dark-cyan;
         }
     }
+}
+
+.select{
+    background-color: var.$strong-cyan;
+    color: var.$very-dark-cyan;
 }
 
 /* ------- SECTION TWO ------- */

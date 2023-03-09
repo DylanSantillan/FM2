@@ -98,10 +98,30 @@ body {
   width: 100%;
   height: 5rem;
   border: 3px solid transparent;
-  transition: border 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 .share__input-wrapper:hover {
-  border: 3px solid hsl(186, 14%, 43%);
+  background-color: hsla(172, 67%, 45%, 0.284);
+}
+
+.container-error {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-disable {
+  display: none;
+}
+
+.error-active {
+  color: hsl(345, 81%, 42%);
+  font-size: 1.6rem;
+}
+
+.error-input {
+  border: 3px solid hsl(345, 81%, 42%);
 }
 
 .tip-selector {
@@ -142,12 +162,17 @@ body {
   outline: none;
   width: 100%;
   border: 3px solid transparent;
-  transition: border 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 .tip-selector__input:hover {
-  border: 3px solid hsl(186, 14%, 43%);
+  background-color: hsla(172, 67%, 45%, 0.284);
 }
 .tip-selector__input::placeholder {
+  color: hsl(183, 100%, 15%);
+}
+
+.select {
+  background-color: hsl(172, 67%, 45%);
   color: hsl(183, 100%, 15%);
 }
 
@@ -210,9 +235,6 @@ body {
   height: 5rem;
   transition: font-size 0.3s ease-in-out;
 }
-.reset:hover {
-  background-color: hsl(186, 14%, 43%);
-}
 @media (min-width: 992px) {
   .reset {
     grid-row: 6;
@@ -226,6 +248,16 @@ body {
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */

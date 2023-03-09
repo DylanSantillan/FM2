@@ -21,7 +21,7 @@
           <legend class="share__legend">Bill</legend>
           <div class="share__input-wrapper">
             <label for="bill-amount" class="share__label"><img src="images/icon-dollar.svg" alt="Icon dollar" class="share__icon"></label>
-            <input type="text" id="bill-amount" class="share__input" placeholder="00.0">
+            <input type="number" id="bill-amount" class="share__input" placeholder="00.0">
           </div>
         </fieldset>
   
@@ -33,15 +33,18 @@
             <input type="button" value="15%" class="tip-selector__button">
             <input type="button" value="25%" class="tip-selector__button">
             <input type="button" value="50%" class="tip-selector__button">
-            <input type="text" id="custom-tip" class="tip-selector__input" placeholder="Custom">
+            <input type="number" id="custom-tip" class="tip-selector__input" placeholder="Custom">
           </div>
         </fieldset>
   
         <fieldset class="share">
-          <legend class="share__legend">Number of People</legend>
-          <div class="share__input-wrapper">
+          <div class="container-error">
+            <legend class="share__legend">Number of People</legend>
+            <p class="error-disable" id="error-text">Can't be zero</p>
+          </div>
+          <div class="share__input-wrapper" id="people-wrapper">
             <label for="num-people" class="share__label"><img src="images/icon-person.svg" alt="Icon person" class="share__icon"></label>
-            <input type="text" id="num-people" class="share__input" placeholder="0">
+            <input type="number" id="num-people" class="share__input" placeholder="0" value="1">
           </div>
         </fieldset>
       </section>
@@ -53,7 +56,7 @@
             <h3 class="result__title">Tip Amount</h3>
             <p class="result__sub-title">/ person</p>
           </div>
-          <p class="result-value">$0.00</p>
+          <p class="result-value">$<span id="amount">0.00</span></p>
         </div>
         
         <div class="container-result">
@@ -61,7 +64,7 @@
             <h3 class="result__title">Total</h3>
             <p class="result__sub-title">/ person</p>
           </div>
-          <p class="result-value">$0.00</p>
+          <p class="result-value">$<span id="total">0.00</span></p>
         </div>
   
         <input type="button" value="RESET" class="reset">
@@ -70,5 +73,6 @@
     </div>
   </main>
 
+  <script src="js/script.js"></script>
 </body>
 </html>
